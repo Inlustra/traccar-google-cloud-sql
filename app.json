@@ -1,0 +1,27 @@
+{
+    "name": "Traccar",
+    "env": {
+        "DATABASE_JDBC_URL": {
+            "description": "Go to your Cloud SQL page, create a database and copy the 'Connection Name' and replace the two instances in the value",
+            "value": "jdbc:mysql:///<DATABASE_NAME>?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=<CONNECTION_NAME>&amp;unixSocketPath=/cloudsql/<CONNECTION_NAME>",
+            "required": true
+        },
+        "DATABASE_USERNAME": {
+            "description": "Cloud SQL database user",
+            "required": true
+        },
+        "DATABASE_PASSWORD": {
+            "description": "Cloud SQL database password",
+            "required": true
+        }
+    },
+    "options": {
+        "allow-unauthenticated": true,
+        "memory": "1024Mi",
+        "cpu": "2",
+        "port": 8082,
+        "http2": true,
+        "concurrency": 80,
+        "max-instances": 10
+    }
+}

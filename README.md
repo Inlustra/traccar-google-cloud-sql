@@ -1,4 +1,7 @@
-Traccar with the built in cloud sql connectors, also example config files.
+Traccar with the built in Googles CloudSQL MYSQL connector, also example config files.
+
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+
 
 This can now just be run in Cloud run, with the follow params: 
 

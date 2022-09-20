@@ -1,0 +1,9 @@
+version: "2.4"
+services:
+  traccar:
+    container_name: traccar
+    build:
+      context: ./
+    # command: "cat /opt/traccar/conf/traccar.xml"
+    # stdin_open: true # docker run -i
+    # tty: true        # docker run -t

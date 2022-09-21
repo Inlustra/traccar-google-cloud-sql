@@ -2,13 +2,13 @@
 
 if [ -n "$DATABASE_TYPE" ]; then
     echo "Database type set to $DATABASE_TYPE"
-    if [ $DATABASE_TYPE == "mysql" ]; then
+    if [ "$DATABASE_TYPE" == "mysql" ]; then
         echo "Detected mysql, setting variables"
         export DATABASE_PROTOCOL=mysql
         export DATABASE_DRIVER="com.mysql.cj.jdbc.Driver"
         export DATABASE_SOCKET_FACTORY="com.google.cloud.sql.mysql.SocketFactory"
         export DATABASE_DRIVER_FILE_LOCATION=/mysql-socket-factory.jar
-    elif [ $DATABASE_TYPE == "postgresql" ]; then
+    elif [ "$DATABASE_TYPE" == "postgresql" ]; then
         echo "Detected postgresql, setting variables"
         export DATABASE_PROTOCOL=postgresql
         export DATABASE_DRIVER="org.postgresql.Driver"

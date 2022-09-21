@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -n $DATABASE_TYPE ]; then
+if [ -n "$DATABASE_TYPE" ]; then
     echo "Database type set to $DATABASE_TYPE"
     if [ $DATABASE_TYPE == "mysql" ]; then
         echo "Detected mysql, setting variables"
@@ -14,7 +14,7 @@ if [ -n $DATABASE_TYPE ]; then
         export DATABASE_DRIVER="org.postgresql.Driver"
         export DATABASE_SOCKET_FACTORY="com.google.cloud.sql.postgres.SocketFactory"
         export DATABASE_DRIVER_FILE_LOCATION=/postgres-socket-factory.jar
-        if [ -n $ENABLE_IAM ]; then
+        if [ -n "$ENABLE_IAM_AUTH" ]; then
             export JDBC_URL_OPTIONS="&amp;enableIamAuth=true"
         fi
     fi

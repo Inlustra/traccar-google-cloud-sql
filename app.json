@@ -1,46 +1,54 @@
 {
-    "name": "Traccar",
-    "env": {
-        "CONNECTION_NAME": {
-            "description": "Go to your Cloud SQL page, create a database and copy the 'Connection Name', it looks something like: myproject:mylocation:mydbname",
-            "required": true
-        },
-        "DATABASE_TYPE": {
-            "description": "Either: mysql (default) or postgresql, note that if you change this, you will also need to change the driver & socket factory",
-            "required": false
-        },
-        "DATABASE_DRIVER": {
-            "description": "Either: com.mysql.cj.jdbc.Driver (default) or org.postgresql.Driver, note that if you change this, you will also need to change the type & socket factory",
-            "required": false
-        },
-        "DATABASE_SOCKET_FACTORY": {
-            "description": "Either: com.google.cloud.sql.mysql.SocketFactory (default) or com.google.cloud.sql.postgres.SocketFactory, note that if you change this, you will also need to change the type & driver",
-            "required": false
-        },
-        "DATABASE_USERNAME": {
-            "description": "Cloud SQL database user",
-            "required": true
-        },
-        "DATABASE_PASSWORD": {
-            "description": "Cloud SQL database password",
-            "required": true
-        },
-        "DATABASE_NAME": {
-            "description": "Cloud SQL database name",
-            "required": true
-        },
-        "JDBC_URL_OPTIONS": {
-            "description": "You can use this to append to the JDBC URL, the default URL is: 'jdbc:${DATABASE_TYPE}:///${DATABASE_NAME}?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=${CONNECTION_NAME}&amp;unixSocketPath=/cloudsql/${CONNECTION_NAME}${JDBC_URL_OPTIONS}'",
-            "required": false
-        }
+  "name": "Traccar",
+  "env": {
+    "DATABASE_TYPE": {
+      "description": "Used to auto configure the advanced variables, supported options are: 'mysql' (Default), 'postgresql' or 'custom' (Advanced)",
+      "required": false
     },
-    "options": {
-        "allow-unauthenticated": true,
-        "memory": "1024Mi",
-        "cpu": "2",
-        "port": 8082,
-        "http2": true,
-        "concurrency": 80,
-        "max-instances": 10
+    "DATABASE_PROTOCOL": {
+      "description": "Advanced, if DATABASE_TYPE is set to custom, used to manually create JDBC url",
+      "required": false
+    },
+    "DATABASE_DRIVER": {
+      "description": "Advanced, if DATABASE_TYPE is set to custom, you can only use those drivers supported by Traccar or loaded via DRIVER_FILE",
+      "required": false
+    },
+    "DATABASE_SOCKET_FACTORY": {
+      "description": "Advanced, if DATABASE_TYPE is set to custom, allows loading a custom socket factory via JDBC url",
+      "required": false
+    },
+    "ENABLE_IAM_AUTH": {
+      "description": "Used to set enableIamAuth on postgresql socket connections",
+      "required": false
+    },
+    "CONNECTION_NAME": {
+      "description": "Go to your Cloud SQL page, create a database and copy the 'Connection Name', it looks something like: myproject:mylocation:mydbname",
+      "required": true
+    },
+    "DATABASE_USERNAME": {
+      "description": "Cloud SQL database user",
+      "required": true
+    },
+    "DATABASE_PASSWORD": {
+      "description": "Cloud SQL database password",
+      "required": true
+    },
+    "DATABASE_NAME": {
+      "description": "Cloud SQL database name",
+      "required": true
+    },
+    "JDBC_URL_OPTIONS": {
+      "description": "Advanced, if DATABASE_TYPE is set to custom, You can use this to append to the JDBC URL, the default URL is: 'jdbc:${DATABASE_TYPE}:///${DATABASE_NAME}?socketFactory=${DATABASE_SOCKET_FACTORY}&amp;cloudSqlInstance=${CONNECTION_NAME}&amp;unixSocketPath=/cloudsql/${CONNECTION_NAME}${JDBC_URL_OPTIONS}'",
+      "required": false
     }
+  },
+  "options": {
+    "allow-unauthenticated": true,
+    "memory": "1024Mi",
+    "cpu": "2",
+    "port": 8082,
+    "http2": true,
+    "concurrency": 80,
+    "max-instances": 10
+  }
 }

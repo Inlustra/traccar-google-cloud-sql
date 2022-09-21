@@ -1,10 +1,17 @@
 {
     "name": "Traccar",
     "env": {
-        "DATABASE_JDBC_URL": {
-            "description": "Go to your Cloud SQL page, create a database and copy the 'Connection Name' and replace the two instances in the value",
-            "value": "jdbc:mysql:///<DATABASE_NAME>?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=<CONNECTION_NAME>&amp;unixSocketPath=/cloudsql/<CONNECTION_NAME>",
+        "CONNECTION_NAME": {
+            "description": "Go to your Cloud SQL page, create a database and copy the 'Connection Name', it looks something like: myproject:mylocation:mydbname",
             "required": true
+        },
+        "DATABASE_TYPE": {
+            "description": "Either: mysql (default) or postgresql, note that if you change this, you will also need to change the driver",
+            "required": false
+        },
+        "DATABASE_DRIVER": {
+            "description": "Either: com.mysql.cj.jdbc.Driver (default) or org.postgresql.Driver, note that if you change this, you will also need to change the type",
+            "required": false
         },
         "DATABASE_USERNAME": {
             "description": "Cloud SQL database user",
@@ -13,6 +20,10 @@
         "DATABASE_PASSWORD": {
             "description": "Cloud SQL database password",
             "required": true
+        },
+        "JDBC_URL_OPTIONS": {
+            "description": "You can use this to append to the JDBC URL, the default URL is: 'jdbc:${DATABASE_TYPE}:///${DATABASE_NAME}?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=${CONNECTION_NAME}&amp;unixSocketPath=/cloudsql/${CONNECTION_NAME}${JDBC_URL_OPTIONS}'",
+            "required": false
         }
     },
     "options": {

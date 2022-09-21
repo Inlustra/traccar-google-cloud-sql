@@ -10,7 +10,7 @@ if [ -n $DATABASE_TYPE ]; then
         export DATABASE_DRIVER_FILE_LOCATION=/mysql-socket-factory.jar
     elif [ $DATABASE_TYPE == "postgresql" ]; then
         echo "Detected postgresql, setting variables"
-        export DATABASE_PROTOCOL=postgres
+        export DATABASE_PROTOCOL=postgresql
         export DATABASE_DRIVER="org.postgresql.Driver"
         export DATABASE_SOCKET_FACTORY="com.google.cloud.sql.postgres.SocketFactory"
         export DATABASE_DRIVER_FILE_LOCATION=/postgres-socket-factory.jar

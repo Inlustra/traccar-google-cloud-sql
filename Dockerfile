@@ -3,6 +3,7 @@ FROM traccar/traccar:5-alpine
 ENV DEFAULT_FILE_LOCATION /opt/traccar/conf/default.xml
 RUN apk add gettext
 
+ENV LOG_LEVEL info
 ENV DATABASE_TYPE mysql
 ENV JDBC_URL_OPTIONS ""
 

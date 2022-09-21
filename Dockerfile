@@ -6,6 +6,7 @@ RUN apk add gettext
 ENV DATABASE_DRIVER_FILE_LOCATION /mysql-socket-factory.jar
 ENV DATABASE_DRIVER com.mysql.cj.jdbc.Driver
 ENV DATABASE_TYPE mysql
+ENV DATABASE_SOCKET_FACTORY com.google.cloud.sql.mysql.SocketFactory
 ENV JDBC_URL_OPTIONS ""
 
 COPY ./mysql-socket-factory-1.7.0-jar-with-driver-and-dependencies.jar /mysql-socket-factory.jar

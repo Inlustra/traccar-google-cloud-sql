@@ -6,11 +6,15 @@
             "required": true
         },
         "DATABASE_TYPE": {
-            "description": "Either: mysql (default) or postgresql, note that if you change this, you will also need to change the driver",
+            "description": "Either: mysql (default) or postgresql, note that if you change this, you will also need to change the driver & socket factory",
             "required": false
         },
         "DATABASE_DRIVER": {
-            "description": "Either: com.mysql.cj.jdbc.Driver (default) or org.postgresql.Driver, note that if you change this, you will also need to change the type",
+            "description": "Either: com.mysql.cj.jdbc.Driver (default) or org.postgresql.Driver, note that if you change this, you will also need to change the type & socket factory",
+            "required": false
+        },
+        "DATABASE_SOCKET_FACTORY": {
+            "description": "Either: com.google.cloud.sql.mysql.SocketFactory (default) or com.google.cloud.sql.postgres.SocketFactory, note that if you change this, you will also need to change the type & driver",
             "required": false
         },
         "DATABASE_USERNAME": {
@@ -19,6 +23,10 @@
         },
         "DATABASE_PASSWORD": {
             "description": "Cloud SQL database password",
+            "required": true
+        },
+        "DATABASE_NAME": {
+            "description": "Cloud SQL database name",
             "required": true
         },
         "JDBC_URL_OPTIONS": {

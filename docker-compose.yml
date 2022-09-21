@@ -4,10 +4,6 @@ services:
     container_name: traccar
     build:
       context: ./
-    environment:
-      DATABASE_JDBC_URL: jdbc:mysql:///traccar-db?cloudSqlInstance=traccar-rowm:europe-west2:traccar-db&amp;unixSocketPath=/cloudsql/traccar-rowm:europe-west2:traccar-db
-      DATABASE_USERNAME: traccar
-      DATABASE_PASSWORD: bG_\rZ.Z^`k$A]KR
-    command: "cat /opt/traccar/conf/traccar.xml"
+    # command: "ls -lash /"
     stdin_open: true # docker run -i
     tty: true        # docker run -t

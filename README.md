@@ -1,9 +1,22 @@
-Traccar with the built in Googles CloudSQL MYSQL connector, also example config files.
+# Traccar with built in Google Cloud SQL MySQL & Postgresql connectors
+
+ Perfect for Cloud Run as the Traccar config file has been replaced with environment variables.
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
 
+## How to use
 
-Possible environment variables:
+You can simply run the Docker image: `inlustra/traccar-google-cloud-sql` with the required env vars below.
+
+It will default to the Google Cloud SQL MySQL connector, if you are using MySQL, the only env vars required are:
+
+- DATABASE_USERNAME
+- DATABASE_PASSWORD
+- DATABASE_NAME
+- CONNECTION_NAME
+
+
+## Possible environment variables:
 
 | Name                    | Description                                                                                                                                                                                                                                                                                                  | Required |
 | :---------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
@@ -19,6 +32,6 @@ Possible environment variables:
 | JDBC_URL_OPTIONS        | Advanced, if DATABASE_TYPE is set to custom, You can use this to append to the JDBC URL, the default URL is: &#x27;jdbc:${DATABASE_TYPE}:///${DATABASE_NAME}?socketFactory&#x3D;${DATABASE_SOCKET_FACTORY}&amp;amp;cloudSqlInstance&#x3D;${CONNECTION_NAME}&amp;amp;unixSocketPath&#x3D;/cloudsql/${CONNECTION_NAME}${JDBC_URL_OPTIONS}&#x27; | false    |
 
 
-A couple of things to note: 
+### Note
 
 - You'll notice that the & symbols have been escaped - Remember, for the username and password you'll have to do the same (I'd recommend avoiding any XML-escape-required characters)

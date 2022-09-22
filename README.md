@@ -1,6 +1,6 @@
 # Traccar with built in Google Cloud SQL MySQL & Postgresql connectors
 
- Perfect for Cloud Run as the Traccar config file has been replaced with environment variables.
+Perfect for Cloud Run as the Traccar config file has been replaced with environment variables.
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
 
@@ -14,7 +14,6 @@ It will default to the Google Cloud SQL MySQL connector, if you are using MySQL,
 - DATABASE_PASSWORD
 - DATABASE_NAME
 - CONNECTION_NAME
-
 
 ## Possible environment variables:
 

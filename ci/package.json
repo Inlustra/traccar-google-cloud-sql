@@ -1,0 +1,16 @@
+{
+  "name": "traccar-gcp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Inlustra/traccar-google-cloud-sql.git",
+  "author": "Thomas Nairn <thomas@thenairn.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "handlebars": "^4.7.7",
+    "json2md": "^2.0.0",
+    "tablemark": "^3.0.0"
+  },
+  "scripts": {
+    "gen": "node --experimental-json-modules ./appjsontomd.mjs"
+  }
+}
